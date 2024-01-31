@@ -1,0 +1,12 @@
+{% extends "tracker/base.html" %}
+
+{% block title %}Import{% endblock title %}
+
+
+{% block content %}
+    <h1>Import Data From Libra</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Import from Libra</button>
+    </form>
+{% endblock content %}

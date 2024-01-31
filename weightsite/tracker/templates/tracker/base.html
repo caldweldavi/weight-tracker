@@ -1,0 +1,54 @@
+{% load tracker_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock title %}</title>
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">David Caldwell's Weight Loss Tracker</a>
+            </div>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "tracker:weight_record_list" %}">Records</a>
+                </li>
+               <li class="nav-item">
+                    <a class="nav-link" href="{% url "tracker:import_weight_records" %}">Import</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="row p-3">
+            <div class=" w-75" id ="content">
+                {% block content %}
+                {% endblock content %}
+            </div>
+            <div class="p-2 w-25" id ="sidebar">
+                <h3>Quick Stats</h3>
+                <table class="table">
+                    <tr>
+                        <th>Latest Weight</th>
+                        <td>{% latest_recorded_weight %}</td>
+                    </tr>
+                    <tr>
+                        <th>Lowest Weight</th>
+                        <td>{% lowest_recorded_weight %}</td>
+                    </tr>
+                    <tr>
+                        <th>Highest Weight</th>
+                        <td>{% highest_recorded_weight %}</td>
+                    </tr>
+                    <tr>
+                        <th>Total Records</th>
+                        <td>{% total_records %}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

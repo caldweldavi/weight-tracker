@@ -1,0 +1,25 @@
+{% extends "tracker/base.html" %}
+
+{% block title %}Weight Record {{weight_record.slug}}{% endblock title %}
+
+{% block content %}
+    <h1>Weight Record {{weight_record.slug}}</h1>
+    <table class="table table-hover">
+        <tr>
+            <th>Weight (kg)</th>
+            <td>{{weight_record.weight}}</td>
+        </tr>
+        <tr>
+            <th>Body Fat (%)</th>
+            <td>{{weight_record.body_fat}}</td>
+        </tr>
+        <tr>
+            <th>Recorded</th>
+            <td>{{weight_record.date_recorded}}</td>
+        </tr>
+        <tr>
+            <th>Added</th>
+            <td>{{weight_record.time_created}}</td>
+        </tr>
+    </table>
+{% endblock content %}

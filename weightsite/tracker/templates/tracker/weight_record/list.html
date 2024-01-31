@@ -1,0 +1,31 @@
+{% extends "tracker/base.html" %}
+
+{% block title %}Weight Records{% endblock title %}
+
+{% block content %}
+    <h1>Weight Records</h1>
+    <div class="table-responsive-sm">  
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Weight (kg)</th>
+                    <th scope="col">Body Fat (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for weight_record in weight_records %}
+                <tr>
+                    <td>
+                        <a href="{% url 'tracker:weight_record_detail' weight_record.slug %}">
+                            {{weight_record.slug}}
+                        </a>
+                    </td>
+                    <td>{{weight_record.weight}}</td>
+                    <td>{{weight_record.body_fat}}</td>
+                <tr/>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
